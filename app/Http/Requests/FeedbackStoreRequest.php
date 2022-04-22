@@ -28,6 +28,7 @@ class FeedbackStoreRequest extends FormRequest
                  'last_name' =>['required'],
                  'email' =>['required' ,'email'],
                  'feedback'=>['required'],
+                'rating' =>['required'],
 
              ];
 

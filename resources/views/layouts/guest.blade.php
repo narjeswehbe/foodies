@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Foodies</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -21,7 +21,7 @@
         <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center justify-between">
                 <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-2xl hover:text-green-400"
-                   href="#">
+                   href="/">
                    Foodies
                 </a>
                 <!-- Mobile menu button -->
@@ -40,6 +40,17 @@
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div :class="isOpen ? 'flex' : 'hidden'"
                  class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
+                <div class="float-right lg:inline-flex items-center rounded-xl px-1 py-2">
+                    <div class="input-group rounded">
+                        <form method="GET" action="#">
+                        <input name="search"type="search" class="form-control rounded border-gray-200" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <div class="inline-flex  h-10 w-18">
+                                <input type="submit" value="Go" class="" id="search-addon">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
                 <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
                    href="/">Home</a>
                 <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
@@ -50,6 +61,7 @@
                    href="{{route('reservations.step.one')}}">Make Reservation</a>
 
             </div>
+
         </nav>
     </div>
 

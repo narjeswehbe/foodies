@@ -1,4 +1,5 @@
 <x-guest-layout>
+
     <div class="container w-full px-5 py-6 mx-auto">
         <div class="grid lg:grid-cols-4 gap-y-6">
             @foreach($category->menus as $menu)
@@ -13,13 +14,11 @@
 
                     </div>
                     <div class="flex items-center justify-between p-4">
-                         @if($flag==1)
-                            <span class="text-xl text-green-600">{{$menu->price*1500}}</span>
-                         @endif
-                        @if($flag==0)
+
+
                              <span class="text-xl text-green-600">{{$menu->price}}</span>
 
-                            @endif
+
 
 
                     </div>

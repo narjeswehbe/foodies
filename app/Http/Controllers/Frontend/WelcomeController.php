@@ -12,15 +12,14 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+
         $specials = Category::where('name', 'specials')->first();
         $offers = Offer::all();
-        $f1 = Feedbacks::find(1);
-        $f2 = Feedbacks::find(2);
-        $f3 = Feedbacks::find(3);
+        $feedbacks = Feedbacks::all();
 
 
 
-        return view('welcome', compact('specials' , 'f1','f2','f3' ,'offers'));
+        return view('welcome', compact('specials' , 'feedbacks','offers'));
     }
     public function thankyou()
     {

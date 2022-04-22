@@ -16,6 +16,7 @@ class FeedbackController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'feedback' => $request->feedback,
+            'rating' => $request->rating,
         ]);
 
         return to_route('feedbacks')->with('success' , 'Thank you for your feedback');

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feedbacks extends Model
 {
-    protected $fillable=['first_name' , 'last_name' , 'email' , 'feedback'];
+    protected $fillable=['first_name' , 'last_name' , 'email' , 'feedback' ,'rating'];
     use HasFactory;
 }
