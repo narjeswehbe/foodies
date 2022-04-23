@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
+use App\Http\Controllers\frontend\editorController;
 use App\Http\Controllers\Frontend\MenuController as FrontendMenuController;
 use App\Http\Controllers\Frontend\ReservationController as FrontendReservationController;
 use App\Http\Controllers\Frontend\FeedbackController as FrontendFeedbackController;
@@ -26,12 +27,21 @@ Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou'
 Route::post('/feedbacks/feedbacks-ok' , [FrontendFeedbackController::class , 'store'])->name('feedbacks.store');
 Route::get('/thankYou', [WelcomeController::class, 'feedbacks'])->name('feedbacks');
 Route::get('/feedbacks/feedbacks-all' ,[FrontendFeedbackController::class , 'show'])->name('show-all');
+Route::get('/about', [WelcomeController::class, 'aboutUs'])->name('aboutUs.index');
+Route::get('/editor.create' , [editorController::class , 'create'])->name('editor.reservations.create');
+Route::post('/editor.store' , [editorController::class , 'store'])->name('editor.reservations.store');
+Route::delete('/editor.destroy/{id}' , [editorController::class , 'destroy'])->name('editor.reservations.destroy');
+Route::get('/editor/edit/{id}' , [editorController::class , 'edit'])->name('editor.reservations.edit');
+Route::post('/editor.update/{id}' , [editorController::class , 'update'])->name('editor.reservations.update');
+
 
 
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard' ,[
+        'reservations' => \App\Models\Reservation::all()
+    ]);
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function () {

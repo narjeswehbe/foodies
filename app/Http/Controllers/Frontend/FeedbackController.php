@@ -24,8 +24,8 @@ class FeedbackController extends Controller
 
     public function show()
     {
-        $offers=Offer::all();
-        return view('feedbacks.feedbacks-all' , compact('offers'));
+        $feedbacks=Feedbacks::all();
+        return view('feedbacks.feedbacks-all' , compact('feedbacks'));
     }
 
 }

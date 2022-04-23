@@ -19,6 +19,7 @@ class WelcomeController extends Controller
 
 
 
+
         return view('welcome', compact('specials' , 'feedbacks','offers'));
     }
     public function thankyou()
@@ -29,5 +30,8 @@ class WelcomeController extends Controller
     public function feedbacks()
     {
         return view('feedbacks.feedbacks-ok');
+    }
+    public function aboutUs() {
+        return view('aboutUs.index');
     }
 }

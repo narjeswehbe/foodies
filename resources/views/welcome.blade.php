@@ -63,7 +63,7 @@
                             smallest restaurants, and hopefully it becomes bigger and bigger!.
                         </p>
                         <div class="relative flex">
-                            <a href="#"
+                            <a href="{{ route('aboutUs.index') }}"
                                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
                                 Read More
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none"
@@ -134,32 +134,32 @@
             </div>
         </div>
     </section>
-{{--    @if(count($specials->menus) >= 1)--}}
-{{--        <section class="mt-8 bg-white">--}}
-{{--            <div class="mt-4 text-center">--}}
-{{--                <h3 class="text-2xl font-bold">Our Menu</h3>--}}
-{{--                <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">--}}
-{{--                    TODAY'S SPECIALITY</h2>--}}
-{{--            </div>--}}
-{{--            <div class="container w-full px-5 py-6 mx-auto">--}}
-{{--                <div class="grid lg:grid-cols-4 gap-y-6">--}}
-{{--                    @foreach($specials->menus as $menu)--}}
-{{--                        <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">--}}
-{{--                            <img class="w-full h-48" src="{{ Storage::url($menu->image) }}"--}}
-{{--                                 alt="Image" />--}}
-{{--                            <div class="px-6 py-4">--}}
-{{--                                <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">{{ $menu->name }}</h4>--}}
-{{--                                <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>--}}
-{{--                            </div>--}}
-{{--                            <div class="flex items-center justify-between p-4">--}}
-{{--                                <span class="text-xl text-green-600">${{ $menu->price }}</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    @endif--}}
+
+        <section class="mt-8 bg-white">
+            <div class="mt-4 text-center">
+                <h3 class="text-2xl font-bold">Our Menu</h3>
+                <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+                    TODAY'S SPECIALITY</h2>
+            </div>
+            <div class="container w-full px-5 py-6 mx-auto">
+                <div class="grid lg:grid-cols-4 gap-y-6">
+                    @foreach($specials->menus as $menu)
+                        <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
+                            <img class="w-full h-48" src="{{ Storage::url($menu->image) }}"
+                                 alt="Image" />
+                            <div class="px-6 py-4">
+                                <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">{{ $menu->name }}</h4>
+                                <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>
+                            </div>
+                            <div class="flex items-center justify-between p-4">
+                                <span class="text-xl text-green-600">${{ $menu->price }}</span>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
     <section class="pt-4 pb-12 bg-gray-50">
         <div class="my-8 text-center">
             <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
@@ -188,7 +188,7 @@
         </div>
     </section>
 
-    @if(count($feedbacks) >= 1)
+
         <section class="pt-4 pb-12 bg-gray-800">
             <div class="my-16 text-center">
                 <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
@@ -199,7 +199,7 @@
                 @for ($i = 0; $i < 3; $i++)
                     <div class="max-w-md p-4 bg-white rounded-lg shadow-lg">
                         <div class="flex justify-start mt-4">
-                            <a href="#" class="text-xl font-medium text-green-500">{{ $feedbacks[$i]->firstName }} {{ $feedbacks[$i]->lastName }}</a>
+                            <a href="#" class="text-xl font-medium text-green-500">{{ $feedbacks[$i]->first_name }} {{ $feedbacks[$i]->last_name }}</a>
                         </div>
                         <div>
                             <p class="mt-2 text-gray-600">{{ $feedbacks[$i]->feedback }}</p>
@@ -219,7 +219,7 @@
                 </a>
             </div>
         </section>
-    @endif
+
     <section class="pt-12 pb-12 bg-red-50">
 
         <form method="POST" enctype="multipart/form-data" action="{{route('feedbacks.store')}}">
