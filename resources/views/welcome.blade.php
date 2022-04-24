@@ -189,7 +189,7 @@
     </section>
 
 
-        <section class="pt-4 pb-12 bg-gray-800">
+        <section class="pt-1 pb-12 bg-gray-800">
             <div class="my-16 text-center">
                 <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
                     Feedbacks </h2>
@@ -197,10 +197,31 @@
             </div>
             <div class="grid gap-2 lg:grid-cols-3">
                 @for ($i = 0; $i < 3; $i++)
-                    <div class="max-w-md p-4 bg-white rounded-lg shadow-lg">
-                        <div class="flex justify-start mt-4">
-                            <a href="#" class="text-xl font-medium text-green-500">{{ $feedbacks[$i]->first_name }} {{ $feedbacks[$i]->last_name }}</a>
+                    <div class="max-w-md p-4 bg-white rounded-lg shadow-lg mr-1 ml-1">
+                        <div class="flex justify-start mt-1">
+                            <a href="#" class="text-xl font-medium text-green-500 pt-2">{{ $feedbacks[$i]->first_name }} {{ $feedbacks[$i]->last_name }}</a>
+                            @if($feedbacks[$i]->rating==5)
+                            <img src={{Storage::url('5stars.jpeg')}}
+                                alt="image" height="90" width="150" class="pl-2">
+                            @endif
+                            @if($feedbacks[$i]->rating==4)
+                                <img src={{Storage::url('4stars.jpg')}}
+                                    alt="image" height="90" width="150" class="pl-2">
+                            @endif
+                            @if($feedbacks[$i]->rating==3)
+                                <img src={{Storage::url('3stars.jpg')}}
+                                    alt="image" height="90" width="150" class="pl-2">
+                            @endif
+                            @if($feedbacks[$i]->rating==2)
+                                <img src={{Storage::url('2stars.jpg')}}
+                                    alt="image" height="90" width="150" class="pl-2">
+                            @endif
+                            @if($feedbacks[$i]->rating==1)
+                                <img src={{Storage::url('1stars.jpg')}}
+                                    alt="image" height="90" width="150" class="pl-2">
+                            @endif
                         </div>
+
                         <div>
                             <p class="mt-2 text-gray-600">{{ $feedbacks[$i]->feedback }}</p>
                         </div>
@@ -209,7 +230,7 @@
             </div>
             <div class="relative flex m-2">
                 <a href="{{route('show-all')}}"
-                   class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
+                   class=" justify-end flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
                     Read More
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -218,6 +239,7 @@
                     </svg>
                 </a>
             </div>
+
         </section>
 
     <section class="pt-12 pb-12 bg-red-50">
