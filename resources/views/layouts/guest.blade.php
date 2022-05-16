@@ -7,6 +7,7 @@
 
         <title>Foodies</title>
 
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -43,10 +44,19 @@
                 <div class="float-right lg:inline-flex items-center rounded-xl px-1 py-2">
                     <div class="input-group rounded">
                         <form method="GET" action="#">
-                        <input name="search"type="search" class="form-control rounded border-gray-200" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <input name="search"type="search" class="form-control rounded border-black-200" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                             <div class="inline-flex  h-10 w-18">
-                                <input type="submit" value="Go" class="" id="search-addon">
+                                <button type="submit" class="btn btn-success">
+                                    <div class="pb-2">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+
+                                    </div>
+
+                                </button>
+
+
                             </div>
+
 
                         </form>
                     </div>

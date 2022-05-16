@@ -23,7 +23,7 @@
             <div class="mt-4 text-center">
                 <h3 class="text-2xl font-bold">Offers</h3>
                 <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-                    TODAY'S OFFERS</h2>
+                    DON'T MISS!</h2>
             </div>
             <div class="container w-full px-5 py-6 mx-auto">
                 <div class="grid lg:grid-cols-4 gap-y-6">
@@ -36,7 +36,14 @@
                                 <p class="leading-normal text-gray-700">{{ $offer->description }}.</p>
                             </div>
                             <div class="flex items-center justify-between p-4">
-                                <span class="text-xl text-green-600">${{ $offer->price }}</span>
+                                <span class="text-xl text-green-600">
+                                    @if($offer->price==0)
+
+                                       <p>Free</p>
+                                    @else
+                                    {{$offer->price}}$
+                                    @endif
+                                </span>
                             </div>
                         </div>
                     @endforeach
@@ -164,7 +171,7 @@
         <div class="my-8 text-center">
             <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
                 Food Gallery</h2>
-            <p class="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. soluta sapient</p>
+
         </div>
         <div class="container grid gap-4 mx-auto lg:grid-cols-3">
             <div class="w-full rounded">
@@ -177,7 +184,7 @@
                 <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706__340.jpg" alt="image">
             </div>
             <div class="w-full rounded">
-                <img src="https://cdn.pixabay.com/photo/2016/02/19/11/30/pizza-1209748_960_720.jpg" alt="image">
+                <img src="https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg" alt="image">
             </div>
             <div class="w-full rounded">
                 <img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020__340.jpg" alt="image">
@@ -189,7 +196,7 @@
     </section>
 
 
-        <section class="pt-1 pb-12 bg-gray-800">
+        <section class="pt-1 pb-20 bg-gray-800">
             <div class="my-16 text-center">
                 <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
                     Feedbacks </h2>
@@ -198,7 +205,7 @@
             <div class="grid gap-2 lg:grid-cols-3">
                 @for ($i = 0; $i < 3; $i++)
                     <div class="max-w-md p-4 bg-white rounded-lg shadow-lg mr-1 ml-1">
-                        <div class="flex justify-start mt-1">
+                        <div class="flex justify-start">
                             <a href="#" class="text-xl font-medium text-green-500 pt-2">{{ $feedbacks[$i]->first_name }} {{ $feedbacks[$i]->last_name }}</a>
                             @if($feedbacks[$i]->rating==5)
                             <img src={{Storage::url('5stars.jpeg')}}
@@ -228,9 +235,9 @@
                     </div>
                 @endfor
             </div>
-            <div class="relative flex m-2">
+            <div class="relative flex m-2 float-right pb-3">
                 <a href="{{route('show-all')}}"
-                   class=" justify-end flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
+                   class="  flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
                     Read More
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -1,5 +1,6 @@
 <x-guest-layout>
     <div class="container  w-full px-5 py-6 mx-auto ml-auto">
+        <h2 class="pl-2 font-semibold max-h-6" style="letter-spacing: 2px">Feedbacks</h2>
         <div class="row gap-y-6">
             @foreach($feedbacks as $feedback)
                 <div class="max-w-full  mb-2 rounded-lg shadow-lg">
